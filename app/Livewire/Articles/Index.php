@@ -11,6 +11,7 @@ class Index extends Component
 {
     use WithPagination;
     public $search='';
+    public $paginateNumber=10;
 
     public function destroy(Article $article){
         $article->delete();
@@ -19,13 +20,14 @@ class Index extends Component
     public function render()
     {
         if ($this->search) {
-            $articles =  Article::where('title','LIKE','%'.$this->search.'%')->orWhere('subtitle','LIKE','%'.$this->search.'%')->paginate(10);
+            
+            $articles =  Article::where('title','LIKE','%'.$this->search.'%')->orWhere('subtitle','LIKE','%'.$this->search.'%')->paginate($this->paginateNumber);
             
        
         }
         else{
 
-            $articles = Article::paginate(10);
+            $articles = Article::paginate($this->paginateNumber);
             // $articles = Article::all();
         }
 
