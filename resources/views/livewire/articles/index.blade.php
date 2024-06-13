@@ -12,6 +12,9 @@
             </a>
         </div>
         <table class="table border mt-2">
+            @if (session('status'))
+                <div class="bg-success p-3 mt-3 border rounded-5 border-2">{{ session('status') }}</div>
+            @endif
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -35,13 +38,13 @@
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 
-            <a href="#" class="btn btn-primary me-md-2">
+            <a href="{{route('articles.show',['article'=>$article])}}" class="btn btn-primary me-md-2">
                 Visualizza
             </a>
             <a href="{{route('articles.edit',['article'=>$article])}}" class="btn btn-warning me-md-2">
                 Modifica
             </a>
-            <button type="button" class="btn btn-danger me-md-2">Elimina</button>
+            <a href="#" wire:click.prevent='destroy({{$article}})' class="btn btn-danger me-md-2">Elimina</a>
         </div>
     </td>
 </tr>

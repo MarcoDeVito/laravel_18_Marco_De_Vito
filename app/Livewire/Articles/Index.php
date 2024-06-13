@@ -11,6 +11,11 @@ class Index extends Component
 {
     use WithPagination;
     public $search='';
+
+    public function destroy(Article $article){
+        $article->delete();
+        session()->flash('status', 'Articolo Eliminato con successo.');
+    }
     public function render()
     {
         if ($this->search) {

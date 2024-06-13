@@ -1,9 +1,7 @@
 <div class="px-4 px-md-5 mb-5">
     <div class="row gx-5 justify-content-center ">
         <div class="col-lg-8 col-xl-6 border p-5 rounded">
-            @if (session('status'))
-                {{ session('status') }}
-            @endif
+            
             <form wire:submit='update'>
                 <div class="form-floating mb-3">
                     <input class="form-control" wire:dirty.class="border-warning" wire:model='title' id="title" name="title" type="text">
