@@ -38,7 +38,7 @@
             <a href="#" class="btn btn-primary me-md-2">
                 Visualizza
             </a>
-            <a href="{{route('articles.edit',$article)}}" class="btn btn-warning me-md-2">
+            <a href="{{route('articles.edit',['article'=>$article])}}" class="btn btn-warning me-md-2">
                 Modifica
             </a>
             <button type="button" class="btn btn-danger me-md-2">Elimina</button>
