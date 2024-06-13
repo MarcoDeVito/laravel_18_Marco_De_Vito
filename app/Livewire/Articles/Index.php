@@ -20,13 +20,19 @@ class Index extends Component
     public function render()
     {
         if ($this->search) {
-            
+            if($this->paginateNumber>25)
+            {
+                $this->paginateNumber=25;
+            }
             $articles =  Article::where('title','LIKE','%'.$this->search.'%')->orWhere('subtitle','LIKE','%'.$this->search.'%')->paginate($this->paginateNumber);
             
        
         }
         else{
-
+            if($this->paginateNumber>25)
+            {
+                $this->paginateNumber=25;
+            }
             $articles = Article::paginate($this->paginateNumber);
             // $articles = Article::all();
         }

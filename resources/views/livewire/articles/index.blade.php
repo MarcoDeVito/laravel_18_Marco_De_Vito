@@ -7,6 +7,7 @@
                     <option value="3">3</option>
                     <option value="5">5</option>
                     <option selected value="10">10</option>
+                    <option selected value="25">25</option>
                 </select>
             </span>
             <form class="d-flex" role="search" action="#" method="POST">
