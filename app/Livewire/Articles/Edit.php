@@ -15,7 +15,7 @@ class Edit extends ModalComponent
     public $subtitle;
     #[Validate('required|min:20')]
     public $content;
-    public $article;
+    public Article $article;
 
     public function update(){
         $this->validate();
@@ -25,6 +25,7 @@ class Edit extends ModalComponent
             'content'=>$this->content,
         ]);
         session()->flash('status', 'Articolo modificato con successo.');
+        $this->dispatch('update-article');
         $this->closeModal();
         
         
