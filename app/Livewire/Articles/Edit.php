@@ -5,8 +5,9 @@ namespace App\Livewire\Articles;
 use App\Models\Article;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use LivewireUI\Modal\ModalComponent;
 
-class Edit extends Component
+class Edit extends ModalComponent
 {
     #[Validate('required|string')]
     public $title;
@@ -24,6 +25,7 @@ class Edit extends Component
             'content'=>$this->content,
         ]);
         session()->flash('status', 'Articolo modificato con successo.');
+        $this->closeModal();
         
         
     } 

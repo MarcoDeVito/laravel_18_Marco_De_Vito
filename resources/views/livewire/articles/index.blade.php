@@ -3,22 +3,27 @@
     <div class="container mt-5">
         <div class="align-middle gap-2 d-flex justify-content-between">
             <h3>Articoli inseriti</h3>
-            <span style="width:30%">Articoli visualizzati: <select class="d-inline form-select form-select-sm" wire:model.live='paginateNumber' style="width:20%">
+            <span style="width:30%">Articoli visualizzati: <select class="d-inline form-select form-select-sm"
+                    wire:model.live='paginateNumber' style="width:20%">
                     <option value="3">3</option>
                     <option value="5">5</option>
                     <option selected value="10">10</option>
                     <option selected value="25">25</option>
                 </select>
             </span>
-            <form class="d-flex" role="search" action="#" method="POST">
+            <form class="d-flex" role="search">
                 <input class="form-control me-2" wire:model.live="search" name="search" type="search"
                     placeholder="Cerca Articolo" aria-label="Search">
             </form>
 
-            <a href="{{ route('articles.create') }}" class="btn btn btn-success me-md-2">
+            {{-- <a href="{{ route('articles.create') }}" class="btn btn btn-success me-md-2">
+             --}}
+            <a href="" wire:click.prevent="$dispatch('openModal', { component: 'articles.create' })"
+                class="btn btn btn-success me-md-2">
                 Crea Nuovo Articolo
             </a>
-        </div>
+            </div>
+        
         <table class="table border mt-2">
             @if (session('status'))
                 <div class="bg-success p-3 mt-3 border rounded-5 border-2">{{ session('status') }}</div>
@@ -49,7 +54,7 @@
                                     class="btn btn-primary me-md-2">
                                     Visualizza
                                 </a>
-                                <a href="{{ route('articles.edit', ['article' => $article]) }}"
+                                <a href="" wire:click.prevent="$dispatch('openModal', { component: 'articles.edit',arguments: { article:{{ $article }}}})"
                                     class="btn btn-warning me-md-2">
                                     Modifica
                                 </a>
@@ -65,4 +70,5 @@
         </table>
         {{ $articles->links() }}
     </div>
+    
 </div>

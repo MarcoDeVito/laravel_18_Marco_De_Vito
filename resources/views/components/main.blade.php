@@ -8,8 +8,9 @@
   </head>
   <body>
     <x-navbar/>
+    @livewire('wire-elements-modal')
     {{$slot}}
     
-   
+    
   </body>
 </html>
