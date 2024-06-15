@@ -26,6 +26,7 @@ class Create extends ModalComponent
         ]);
         session()->flash('status', 'Articolo creato con successo.');
         $this->reset();
+        $this->dispatch('update-article');
         $this->closeModal();
     }
    
